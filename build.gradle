@@ -26,6 +26,9 @@ repositories {
 dependencies {
 	//Test Dependencies
 	testCompile 'junit:junit'
+	testCompile 'org.mockito:mockito-all:1.10.19'
+	testCompile 'org.springframework:spring-test'
+	testCompile 'org.springframework.boot:spring-boot-test'
 	
 	//Compilation Dependencies
 	compile 'org.springframework.boot:spring-boot-starter'
