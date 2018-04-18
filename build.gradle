@@ -24,7 +24,11 @@ repositories {
 }
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework:spring-web')
+	//Test Dependencies
+	testCompile 'junit:junit'
+	
+	//Compilation Dependencies
+	compile 'org.springframework.boot:spring-boot-starter'
+	compile 'org.springframework.boot:spring-boot-starter-web'
+	compile 'org.springframework:spring-web'
 }
