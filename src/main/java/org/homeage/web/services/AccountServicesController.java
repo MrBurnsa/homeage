@@ -1,5 +1,7 @@
 package org.homeage.web.services;
 
+import org.homeage.web.requests.GetAccountRequest;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,8 +16,8 @@ public final class AccountServicesController implements AccountServices {
 
 	@Override
 	@RequestMapping("/getAccount")
-	public void getAccount() {
-		System.out.println("Getting account.");
+	public void getAccount(@RequestBody final GetAccountRequest request) {
+		System.out.println("Getting account: " + request.getAccountNumber());
 	}
 
 	@Override
