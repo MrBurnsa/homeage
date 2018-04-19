@@ -1,4 +1,4 @@
-package org.homeage.web;
+package org.homeage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

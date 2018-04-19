@@ -31,7 +31,9 @@ dependencies {
 	testCompile 'org.springframework.boot:spring-boot-test'
 	
 	//Compilation Dependencies
+	compile 'org.springframework:spring-web'
+	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
 	compile 'org.springframework.boot:spring-boot-starter'
 	compile 'org.springframework.boot:spring-boot-starter-web'
-	compile 'org.springframework:spring-web'
+	compile 'org.postgresql:postgresql:9.2-1002-jdbc4'
 }
