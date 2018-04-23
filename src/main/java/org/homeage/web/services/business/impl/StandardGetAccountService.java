@@ -1,35 +1,41 @@
 package org.homeage.web.services.business.impl;
 
+import java.util.Optional;
+
+import org.homeage.business.Account;
 import org.homeage.domain.repositories.AccountRepository;
 import org.homeage.web.dto.ResponseDetails;
 import org.homeage.web.dto.StatusCode;
 import org.homeage.web.requests.GetAccountRequest;
-import org.homeage.web.responses.Response;
+import org.homeage.web.responses.GetAccountResponse;
 import org.homeage.web.services.business.GetAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public final class StandardGetAccountService implements GetAccountService {
-	private final Response response = new Response();
+	private final GetAccountResponse response = new GetAccountResponse();
 
 	@Autowired
 	private AccountRepository repository;
 
 	@Override
-	public Response execute(final GetAccountRequest request) {
-		response.setResponseDetails(isValid(request));
+	public GetAccountResponse execute(final GetAccountRequest request) {
+		response.setResponseDetails(validate(request));
+		final Optional<Account> account = repository.getByAcctNumber(request.getAccountNumber());
+		if (account.isPresent()) {
+			response.setAccount(account.get());
+		}
 		return response;
 	}
 
-	public ResponseDetails isValid(final GetAccountRequest request) {
-		ResponseDetails details = ResponseDetails.createSuccessfulStatus();
+	@Override
+	public ResponseDetails validate(final GetAccountRequest request) {
+		final ResponseDetails details;
 		if (request.getAccountNumber() == null) {
 			details = ResponseDetails.createFailedStatus(StatusCode.MISSING_DATA, "No account number was provided.");
 		} else {
-			if (repository.getByAcctNumber(request.getAccountNumber()) != null) {
-				System.out.println(request.getAccountNumber() + " found!");
-			}
+			details = ResponseDetails.createSuccessfulStatus();
 		}
 		return details;
 	}

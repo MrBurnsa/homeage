@@ -20,7 +20,7 @@ public final class StandardGetAccountServiceTest {
 		final StandardGetAccountService service = new StandardGetAccountService();
 		final GetAccountRequest request = new GetAccountRequest();
 		request.setAccountNumber(null);
-		final ResponseDetails details = service.isValid(request);
+		final ResponseDetails details = service.validate(request);
 		assertFalse(details.getWasSuccessful());
 		assertEquals(details.getStatusCode(), StatusCode.MISSING_DATA);
 	}
