@@ -28,6 +28,7 @@ public final class StandardCreateAccountService implements CreateAccountService 
 		return response;
 	}
 
+	@Override
 	public ResponseDetails validate(final CreateAccountRequest request) {
 		ResponseDetails details;
 		if (repository.existsByEmailAddress(request.getEmailAddress())) {
