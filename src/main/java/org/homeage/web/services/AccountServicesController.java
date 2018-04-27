@@ -1,5 +1,6 @@
 package org.homeage.web.services;
 
+import org.homeage.aspect.Audit;
 import org.homeage.web.requests.CreateAccountRequest;
 import org.homeage.web.requests.GetAccountRequest;
 import org.homeage.web.requests.UpdateAccountRequest;
@@ -29,6 +30,7 @@ public final class AccountServicesController implements AccountServices {
 		return createAccountService.execute(request);
 	}
 
+	@Audit
 	@Override
 	@RequestMapping("/getAccount")
 	public Response getAccount(@RequestBody final GetAccountRequest request) {

@@ -16,8 +16,12 @@ import org.springframework.stereotype.Service;
 public final class StandardGetAccountService implements GetAccountService {
 	private final GetAccountResponse response = new GetAccountResponse();
 
+	private final AccountRepository repository;
+
 	@Autowired
-	private AccountRepository repository;
+	public StandardGetAccountService(final AccountRepository repository) {
+		this.repository = repository;
+	}
 
 	@Override
 	public GetAccountResponse execute(final GetAccountRequest request) {
