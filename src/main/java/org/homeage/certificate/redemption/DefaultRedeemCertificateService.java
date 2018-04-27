@@ -10,11 +10,13 @@ import org.springframework.stereotype.Service;
 @Service
 public final class DefaultRedeemCertificateService implements RedeemCertificateService {
 	private final CertificateRepository repository;
-	private final RedeemCertificateResponse response = new RedeemCertificateResponse();
+	private final RedeemCertificateResponse response;
 
 	@Autowired
-	public DefaultRedeemCertificateService(final CertificateRepository repository) {
+	public DefaultRedeemCertificateService(final CertificateRepository repository,
+			final RedeemCertificateResponse response) {
 		this.repository = repository;
+		this.response = response;
 	}
 
 	@Override
