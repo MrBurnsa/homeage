@@ -5,7 +5,9 @@ import org.homeage.web.dto.AccountDTO;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
+import org.springframework.stereotype.Component;
 
+@Component
 final class RuleBasedCampaignEngine implements CampaignEngine {
 	private static final String SESSION_NAME = "ksession-rules";
 	private AccountDTO accountForDecisioning;

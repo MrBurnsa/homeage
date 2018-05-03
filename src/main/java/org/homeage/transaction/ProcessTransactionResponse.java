@@ -1,5 +1,8 @@
 package org.homeage.transaction;
 
-public final class ProcessTransactionResponse {
+import org.homeage.web.responses.Response;
+import org.springframework.stereotype.Component;
 
+@Component
+public final class ProcessTransactionResponse extends Response {
 }

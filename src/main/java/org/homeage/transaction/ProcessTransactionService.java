@@ -1,5 +1,7 @@
 package org.homeage.transaction;
 
-public interface ProcessTransactionService {
+import org.homeage.web.services.ExecutionService;
 
+public interface ProcessTransactionService
+		extends ExecutionService<ProcessTransactionRequest, ProcessTransactionResponse> {
 }

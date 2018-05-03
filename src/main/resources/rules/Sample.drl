@@ -5,10 +5,8 @@ import org.homeage.web.dto.AccountDTO;
 
 rule "Base Campaign"
     when
-    	acct : AccountDTO( canEarn == true, portfolioId == 35 )  
+    	acct : AccountDTO( portfolioId == 35 )  
     	tran : TransactionDTO (type in ("SALE", "RETURN"), category in ("INSTORE", "ONLINE"))
-    	resp : ProcessResponse()
     then
     	System.out.println("The account can earn and portfolio ID is " + acct.getPortfolioId());
-    	resp.setWasSuccessful(true);
 end
